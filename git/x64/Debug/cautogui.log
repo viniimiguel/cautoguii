@@ -1,4 +1,5 @@
-﻿  cautogui.cpp
+﻿  screen.cpp
+C:\Users\vinicius\Desktop\c++\cautogui\cautogui\cautogui\screen.cpp(25,47): warning C4267: 'argumento': conversão de 'size_t' para 'LONG', possível perda de dados
   cautogui.vcxproj -> C:\Users\vinicius\Desktop\c++\cautogui\cautogui\x64\Debug\cautogui.exe
   'pwsh.exe' não é reconhecido como um comando interno
   ou externo, um programa operável ou um arquivo em lotes.

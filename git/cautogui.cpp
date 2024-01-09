@@ -13,9 +13,15 @@ int main()
     Screen* s1 = new Screen();
     Tec* f1 = new Tec();
 
-    Sleep(1000);
-    
-    
+    Sleep(2000);
+    s1->screenshotsave(caminho);
+    auto result = s1->locatecenteronscreen(caminho, caminho2, 0.8);
+
+    if(result.first)
+    {
+        m1->moveTo(result.second.first, result.second.second, 1000);
+    }
+
 }
 
  
