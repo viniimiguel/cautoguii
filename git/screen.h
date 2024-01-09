@@ -1,12 +1,12 @@
 #pragma once
 #include <string>
-
+#include <opencv2/opencv.hpp>
 
 class Screen
 {
 public:
 	void screenshotsave(std::string locate);
-	void screenshot();
-	void locateonscreen();
+	std::pair<bool, std::pair<int,int>>locateonscreen(std::string imgREF, std::string imgFIND, double confidence);
+
 private:
 };

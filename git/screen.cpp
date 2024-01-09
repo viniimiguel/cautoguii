@@ -2,6 +2,8 @@
 #include <iostream>
 #include "opencv2/opencv.hpp"
 #include "Windows.h"
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 void Screen::screenshotsave(std::string locate)
 {
@@ -28,3 +30,38 @@ void Screen::screenshotsave(std::string locate)
     DeleteDC(hMemoryDC);
     DeleteObject(hBitmap);
 }
+std::pair<bool, std::pair<int,int>>Screen::locateonscreen(std::string imgREF, std::string imgFIND, double confidence)
+{
+    cv::Mat largerImage = cv::imread(imgREF);
+    cv::Mat smallerImage = cv::imread(imgFIND);
+
+    if (largerImage.empty() || smallerImage.empty()) {
+        std::cerr << "Erro: Imagem vazia." << std::endl;
+        return {false, {0,0}};
+    }
+
+    cv::Mat result;
+    cv::matchTemplate(largerImage, smallerImage, result, cv::TM_CCOEFF_NORMED);
+
+    double minVal, maxVal;
+    cv::Point minLoc, maxLoc;
+    cv::minMaxLoc(result, &minVal, &maxVal, &minLoc, &maxLoc);
+
+    
+    double threshold = confidence;
+
+    if (maxVal >= threshold) {
+        std::cout << "a imagem menor esta contida na imagem maior" << std::endl;
+        return {true, {maxLoc.x, maxLoc.y}};
+        
+    }
+    else {
+        std::cout << "a imagem menor nao esta contida na imagem maior" << std::endl;
+        return {false, {0,0}};
+    }
+
+
+}
+
+
+

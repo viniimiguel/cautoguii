@@ -54,3 +54,28 @@ void Moc::click(int numofclicks, std::string button)
 		}
 	}
 }
+void Moc::dragTo(int fx, int fy, int duration)
+{
+	mouse_event(MOUSEEVENTF_LEFTDOWN, 0,0,0,0);
+	POINT currentPos;
+	GetCursorPos(&currentPos);
+
+	int start_x = currentPos.x;
+	int start_y = currentPos.y;
+
+	const int numSteps = 100;
+
+	double stepX = static_cast<double>(fx - start_x) / numSteps;
+	double stepY = static_cast<double>(fy - start_y) / numSteps;
+
+	for (int i = 1; i <= numSteps; i++)
+	{
+		int currentX = static_cast<int>(start_x + i * stepX);
+		int currentY = static_cast<int>(start_y + i * stepY);
+		SetCursorPos(currentX, currentY);
+		Sleep(duration / numSteps);
+	}
+	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+
+}
+
