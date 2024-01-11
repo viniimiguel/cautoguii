@@ -29,6 +29,32 @@ void Screen::screenshotsave(std::string locate)
     DeleteDC(hMemoryDC);
     DeleteObject(hBitmap);
 }
+void Screen::screenshotregion(std::string locate, int x, int y)
+{
+    HWND hDesktop = GetDesktopWindow();
+
+
+    RECT desktopRect;
+    GetWindowRect(hDesktop, &desktopRect);
+    int screenWidth = x;
+    int screenHeight = y;
+
+
+    cv::Mat screenshot = cv::Mat(screenHeight, screenWidth, CV_8UC4);
+    HDC hScreenDC = GetDC(hDesktop);
+    HDC hMemoryDC = CreateCompatibleDC(hScreenDC);
+    HBITMAP hBitmap = CreateCompatibleBitmap(hScreenDC, screenWidth, screenHeight);
+    SelectObject(hMemoryDC, hBitmap);
+    BitBlt(hMemoryDC, 0, 0, screenWidth, screenHeight, hScreenDC, 0, 0, SRCCOPY);
+    GetBitmapBits(hBitmap, screenshot.total() * screenshot.elemSize(), screenshot.data);
+
+    cv::imwrite(locate, screenshot);
+
+    ReleaseDC(hDesktop, hScreenDC);
+    DeleteDC(hMemoryDC);
+    DeleteObject(hBitmap);
+}
+
 std::pair<bool, std::pair<int,int>>Screen::locateonscreen(std::string imgREF, std::string imgFIND, double confidence)
 {
     cv::Mat largerImage = cv::imread(imgREF);
