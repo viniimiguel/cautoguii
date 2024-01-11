@@ -24,7 +24,18 @@
 ### Vamos agora para uma demonstração simples de como usar esta função: 
 
 ![image](https://github.com/viniimiguel/cautoguii/assets/144070822/fb814bf4-4dc1-4367-ae68-8bb69b039a3f)
+
 <hr>
+
+# Função:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/0bbfafe4-12db-48d7-8af7-851b5c7e08db)
+
+### Esta função ira tirar um screenshot da regiao desejada por exemplo você deve passar o caminho para salvar a screenshot e o X, Y que quer tirar captura como por exemplo:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/9ed2e045-4417-4261-b66f-769a206e0040)
+### Neste exemplo eu estou tirando uma screenshot da região X:500 e Y:500 do meu monitor e salvando na variavel "caminho".
+
+<hr>
+
 
 # Funções de mouse:
 
