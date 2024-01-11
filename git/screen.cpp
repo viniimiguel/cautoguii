@@ -2,7 +2,6 @@
 #include <iostream>
 #include "opencv2/opencv.hpp"
 #include "Windows.h"
-#include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
 void Screen::screenshotsave(std::string locate)
@@ -98,5 +97,4 @@ std::pair<bool, std::pair<int, int>>Screen::locatecenteronscreen(std::string img
         return { false, {0,0} };
     }
 }
-
 
