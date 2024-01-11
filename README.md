@@ -66,3 +66,48 @@
 ![image](https://github.com/viniimiguel/cautoguii/assets/144070822/4eaeeef3-2015-4e67-b7c4-5e08a295f7cf)
 
 ![image](https://github.com/viniimiguel/cautoguii/assets/144070822/fbadc2f6-ceb8-456c-b594-07a134a09b71)
+
+<hr>
+
+# Funções de teclado:
+
+## Função: 
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/34e48af8-d412-4df5-adab-2c4fc2f18406)
+## Nesta função você de ve apenas declarar um char da tecla que voce quer pressionar:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/c100d567-8322-45e2-be19-0567b573ad47)
+## A primeira tecla passada no parametro ira ser pressionada ate o fim do pressionamento da segunda tecla.
+
+<hr>
+
+## Função:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/a5773c66-c893-4325-9688-cceb9a96ae8d)
+## Nesta função você deverá declarar a tecla via hexadecimal como por exemplo: 
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/ade81c63-2e4d-4fac-8231-11552db80df1)
+## Neste exemplo esta sendo simulado um "ALT + TAB" como hotkey.
+
+<hr>
+
+## Função:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/1564231b-4476-4f32-ba56-a7714e57b8e7)
+## Nesta função você deverá declarar um char como por exemplo 'A' e o numero de vezes que esta tecla sera pressionada como por exemplo:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/80b24448-81d7-4475-bb5c-09ec27704842)
+
+<hr>
+
+## Função:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/92a30635-1d1a-4efc-93e6-a6fad3454984)
+## Nesta função você deverá declarar em hexadecimal a tecla a ser pressionada e o numero de vezes que a mesma sera pressionada como por exemplo:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/7e95b362-5f29-4a1f-9577-2cf824b0f6ae)
+
+<hr>
+
+## Função:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/0fbb9781-7476-403b-9e8f-7cc696a1f917)
+## Nesta função você deverá declarar uma string com oque voce quiser digitar como por exemplo:
+![image](https://github.com/viniimiguel/cautoguii/assets/144070822/8316c7d3-d671-44db-9e71-c52f9674116c)
+
+<hr>
+
+# Se você leu até aqui, obrigado! Espero este projeto seja útil. Sinta-se à vontade para modificar o código de acordo com suas necessidades e preferências. Tenha um bom uso!
+
+<hr>
