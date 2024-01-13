@@ -13,22 +13,8 @@ int main()
     Screen* s1 = new Screen();
     Tec* t1 = new Tec();
 
-
-    s1->screenshotregion(caminho, 500, 500);
-    auto result = s1->locatecenteronscreen(caminho, caminho2, 0.8);
-
-    if(result.first)
-    {
-        m1->moveTo(result.second.first, result.second.second, 1000);
-        std::cout << "o centro da imagem se encontra em X:" << result.second.first << " Y: " << result.second.second << std::endl;
-    }
-
+    s1->screenshotsave(caminho);
     
-
-
-    
-    
-
 }
 
 

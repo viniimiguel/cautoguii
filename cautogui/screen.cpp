@@ -55,14 +55,14 @@ void Screen::screenshotregion(std::string locate, int x, int y)
     DeleteObject(hBitmap);
 }
 
-std::pair<bool, std::pair<int,int>>Screen::locateonscreen(std::string imgREF, std::string imgFIND, double confidence)
+std::pair<bool, std::pair<int, int>>Screen::locateonscreen(std::string imgREF, std::string imgFIND, double confidence)
 {
     cv::Mat largerImage = cv::imread(imgREF);
     cv::Mat smallerImage = cv::imread(imgFIND);
 
     if (largerImage.empty() || smallerImage.empty()) {
         std::cerr << "Erro: Imagem vazia." << std::endl;
-        return {false, {0,0}};
+        return { false, {0,0} };
     }
 
     cv::Mat result;
@@ -72,17 +72,17 @@ std::pair<bool, std::pair<int,int>>Screen::locateonscreen(std::string imgREF, st
     cv::Point minLoc, maxLoc;
     cv::minMaxLoc(result, &minVal, &maxVal, &minLoc, &maxLoc);
 
-    
+
     double threshold = confidence;
 
     if (maxVal >= threshold) {
         std::cout << "a imagem menor esta contida na imagem maior" << std::endl;
-        return {true, {maxLoc.x, maxLoc.y}};
-        
+        return { true, {maxLoc.x, maxLoc.y} };
+
     }
     else {
         std::cout << "a imagem menor nao esta contida na imagem maior" << std::endl;
-        return {false, {0,0}};
+        return { false, {0,0} };
     }
 
 
@@ -115,7 +115,7 @@ std::pair<bool, std::pair<int, int>>Screen::locatecenteronscreen(std::string img
         std::cout << "Tamanho da imagem - Altura: " << altura << " pixels, Largura: " << largura << " pixels" << std::endl;
         std::cout << "a imagem menor esta contida na imagem maior" << std::endl;
         std::cout << "no local x: " << maxLoc.x << " y: " << maxLoc.y << std::endl;
-        return { true, {center_x, center_y}};
+        return { true, {center_x, center_y} };
 
     }
     else {
@@ -123,4 +123,18 @@ std::pair<bool, std::pair<int, int>>Screen::locatecenteronscreen(std::string img
         return { false, {0,0} };
     }
 }
+bool Screen::findWindow(std::string nameWindow)
+{
+    int len = MultiByteToWideChar(CP_ACP, 0, nameWindow.c_str(), -1, NULL, 0);
+    wchar_t* wNameWindow = new wchar_t[len];
+    MultiByteToWideChar(CP_ACP, 0, nameWindow.c_str(), -1, wNameWindow, len);
 
+    HWND hwnd = FindWindow(NULL, wNameWindow);
+    if(!hwnd)
+    {
+        std::cout << "janela nao encontrada" << std::endl;
+        exit(-1);
+    }
+    std::cout << "janela encontada" << std::endl;
+    return hwnd;
+}
